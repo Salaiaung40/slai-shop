@@ -1,32 +1,54 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <NavBar />
+    <div class="body1">
+      <div class="sidenav">
+        <h5>Categories</h5>
+        <router-link to="/book">Books</router-link> <br />
+        <router-link to="/clo">Clothes</router-link> <br />
+        <router-link to="/elect">Electronic</router-link> <br />
+        <router-link to="/food">Food</router-link>
+      </div>
+      <div class="shoppage">
+        <router-view />
+      </div>
     </div>
-    <router-view />
+    <!--end of body1-->
   </div>
+  <!--end of main App-->
 </template>
 
-<style lang="scss">
+<script>
+import NavBar from "@/components/nevbar.vue";
+export default {
+  name: "App",
+  components: {
+    NavBar
+  }
+};
+</script>
+
+<style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  margin-top: 5px;
 }
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.body1 {
+  display: flex;
+  flex-direction: row;
+  row-gap: 30px;
+}
+.sidenav {
+  width: 15%;
+  background-color: #f3f1f1;
+  margin-right: 10px;
+}
+.shoppage {
+  width: 85%;
+  padding: 1em;
 }
 </style>
